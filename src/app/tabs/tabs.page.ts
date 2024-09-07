@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+
 
 @Component({
   selector: 'app-tabs',
@@ -6,7 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
+  tabCurrent: string ='';
 
   constructor() {}
+
+  onTabChanged(event:any) {
+    this.tabCurrent = event.tab;
+  }
 
 }
