@@ -1,9 +1,42 @@
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Keycloak</ion-card-title>
+      <ion-card-subtitle>Acess Token</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+        <ion-list>
+          <ion-item>
+            <ion-label position="stacked">url</ion-label>
+            <ion-input type="text" formControlName="url"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">realm</ion-label>
+            <ion-input type="text" formControlName="realm"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">username</ion-label>
+            <ion-input type="text" formControlName="username"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">password</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </ion-list>
+
+        <ion-button expand="block" type="submit">Submit</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-toast
+    [isOpen]="isToastOpen"
+    [message]="message"
+    [duration]="5000"
+    (didDismiss)="setOpen(false)"
+  ></ion-toast>
+
 </ion-content>
